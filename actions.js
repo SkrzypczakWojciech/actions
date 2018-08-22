@@ -1,8 +1,8 @@
-const ADD_COMMENT = 'ADD_COMMENT';
-const REMOVE_COMMENT = 'REMOVE_COMMENT';
-const EDIT_COMMENT = 'EDIT_COMMENT';
-const THUMB_UP_COMMENT = 'THUMB_UP_COMMENT';
-const THUMB_DOWN_COMMENT = 'THUMB_DOWN_COMMENT';
+export const ADD_COMMENT = 'ADD_COMMENT';
+export const REMOVE_COMMENT = 'REMOVE_COMMENT';
+export const EDIT_COMMENT = 'EDIT_COMMENT';
+export const THUMB_UP_COMMENT = 'THUMB_UP_COMMENT';
+export const THUMB_DOWN_COMMENT = 'THUMB_DOWN_COMMENT';
 
 function addComment(text) {
     return {
@@ -17,7 +17,7 @@ dispatch(addComment('nowy komentarz!'));
 function removeComment(id) {
     return {
     	type: REMOVE_COMMENT,
-        id: 3,
+        id:
     }
 }
 
@@ -27,7 +27,7 @@ function editComment(text,id) {
     return {
         type: EDIT_COMMENT,
         text,
-        id: 3,
+        id:
     }
 }
 
@@ -35,22 +35,22 @@ dispatch(editComment('edytuje komentarz',3));
 
 function thumbUp(rank,id) {
     return {
-        type: thumbUp,
+        type:THUMB_UP_COMMENT,
         text,
-        id: 3,
-        rank:0,
+        id:,
+        rank:
     }
 }
 
-dispatch(editComment(+1,3));
+dispatch(thumbUp(+1,3));
 
 function thumbDown(rank,id) {
     return {
-        type: thumbUp,
+        type: THUMB_DOWN_COMMENT,
         text,
-        id: 3,
-        rank:0,
+        id:,
+        rank:
     }
 }
 
-dispatch(editComment(-1,3));
+dispatch(thumbDown(-1,3));
