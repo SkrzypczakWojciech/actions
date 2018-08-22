@@ -33,24 +33,22 @@ function editComment(text,id) {
 
 dispatch(editComment('edytuje komentarz',3));
 
-function thumbUp(rank,id) {
+function thumbUp(id) {
     return {
         type:THUMB_UP_COMMENT,
-        text,
         id:,
-        rank:
+        votes:
     }
 }
 
-dispatch(thumbUp(+1,3));
+dispatch(thumbUp(3));
 
-function thumbDown(rank,id) {
+function thumbDown(id) {
     return {
         type: THUMB_DOWN_COMMENT,
-        text,
         id:,
-        rank:
+        votes:
     }
 }
 
-dispatch(thumbDown(-1,3));
+dispatch(thumbDown(3));
