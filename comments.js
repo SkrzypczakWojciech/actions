@@ -14,12 +14,10 @@ function comments(state = [], action) {
                 }
                 , ...state.comments]          
         case EDIT_COMMENT:
-            return [{
-                    id: action.id,
-                    text: action.text,
-                    votes: 0
-                }
-                , ...state.comments]
+        	const edit = state.comments.map(comment => {
+        		if(comment.id === action.id){
+        			return {...state.comments},
+        		)}}
         case REMOVE_COMMENT:
             return {
                 comments: state.comments.filter(comment => comment.id !== action.id)
