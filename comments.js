@@ -14,12 +14,12 @@ function comments(state = [], action) {
                 }
                 , ...state.comments]          
         case EDIT_COMMENT:
-        	const edit = state.comments.map(comment => {
+        	return state.comments.map(comment => {
         		if(comment.id === action.id){
-        			return {...state.comments},
+        			return {...comment},
         		}
         		return state.comments
-        	}
+        	})
         case REMOVE_COMMENT:
             return {
                 comments: state.comments.filter(comment => comment.id !== action.id)
@@ -27,14 +27,14 @@ function comments(state = [], action) {
         case THUMB_UP:
         	const up = state.comments.map(comment => {
         		if(comment.id === action.id){
-        			return state.comments.votes = +1,
+        			return {...comment, votes: comment.votes +1},
         		}
         		return state.comments
-        	}
+        	})
         case THUMB_DOWN:
         	const down = state.comments.map(comment => {
         		if(comment.id === action.id){
-        			return state.comments.votes = -1,
+        			return {...comment, votes: comment.votes -1},
         		}
         		return state.comments
-}
+})
