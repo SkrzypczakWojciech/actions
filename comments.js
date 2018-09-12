@@ -16,10 +16,13 @@ function comments(state = [], action) {
         case EDIT_COMMENT:
         	return state.comments.map(comment => {
         		if(comment.id === action.id){
-        			return {...comment},
-        		}
-        		return state.comments
-        	})
+        			return {
+                        id: comment.id,
+                        text: action.text,
+                        votes: comment.votes
+                    }};
+        		})
+        		return comment;
         case REMOVE_COMMENT:
             return {
                 comments: state.comments.filter(comment => comment.id !== action.id)
@@ -27,14 +30,20 @@ function comments(state = [], action) {
         case THUMB_UP:
         	const up = state.comments.map(comment => {
         		if(comment.id === action.id){
-        			return {...comment, votes: comment.votes +1},
-        		}
-        		return state.comments
+        			return {
+        				id: comment.id,
+        				text: comment.text,
+        				votes: comment.votes +1	
+        			}};
+        		return comment;
         	})
         case THUMB_DOWN:
         	const down = state.comments.map(comment => {
         		if(comment.id === action.id){
-        			return {...comment, votes: comment.votes -1},
-        		}
-        		return state.comments
-})
+        			return {
+        				id: comment.id,
+        				text: comment.text,
+        				votes: comment.votes -1
+        			}};
+        		return comment;
+        	})
